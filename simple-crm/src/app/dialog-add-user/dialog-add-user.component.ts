@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDateRangePicker } from '@angular/material/datepicker';
+import { User } from '../../models/user.class';
 
 
 @Component({
@@ -19,7 +20,14 @@ import { MatDateRangePicker } from '@angular/material/datepicker';
 })
 export class DialogAddUserComponent {
 
+  user: User = new User();
+  birthDate: Date | any;
   onNoClick() {
 
+  }
+
+  saveUser() {
+    this.user.birthDate = this.birthDate ? this.birthDate.getTime() : '';
+    console.log("this current user", this.user);
   }
 }
