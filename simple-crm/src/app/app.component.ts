@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FirebaseServiceService } from './firebase-service/firebase-service.service';
 
 @Component({
   selector: 'app-root',
@@ -19,4 +20,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 })
 export class AppComponent {
   title = 'simpleCRM';
+
+  firebase = inject(FirebaseServiceService);
 }

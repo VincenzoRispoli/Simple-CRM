@@ -1,4 +1,22 @@
-<p>user works!</p>
-<button (click)="openDialog()" class="add-user-btn" mat-fab color="primary"  matTooltip="Add user" [matTooltipPosition]="'above'" >
+<mat-card class="user-card">
+    <table class="user-table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
+        @for(user of firebase.allUsers; track user;){
+        <tr [routerLink]="['/user/' + user.id]">
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td> {{user.email}}</td>
+            <td>{{user.city}}</td>
+        </tr>
+        }
+
+
+    </table>
+</mat-card>
+<button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltip="Add user"
+    [matTooltipPosition]="'above'">
     <mat-icon>add</mat-icon>
 </button>
